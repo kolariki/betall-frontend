@@ -102,6 +102,13 @@ export default function MarketCard({ market }) {
   const isResolved = market.status === 'resolved';
   const isClosed = market.status === 'closed' || new Date(market.closes_at) <= new Date();
 
+  // Don't render resolved or closed markets
+  if (isResolved || isClosed) return null;
+
+  // Format close date
+  const closesDate = new Date(market.closes_at);
+  const closeLabel = closesDate.toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: closesDate.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined });
+
   return (
     <div
       onClick={() => navigate(`/market/${market.id}`)}
@@ -113,15 +120,6 @@ export default function MarketCard({ market }) {
           <Icon className="w-3 h-3" />
           {categoryLabels[market.category] || 'Otro'}
         </span>
-        {isResolved ? (
-          <span className={`text-xs font-bold px-2.5 py-1 rounded-lg ${market.result ? 'bg-[#2ebd85]/20 text-[#2ebd85]' : 'bg-[#f6465d]/20 text-[#f6465d]'}`}>
-            {market.result ? '✅ SÍ' : '❌ NO'}
-          </span>
-        ) : isClosed ? (
-          <span className="text-xs font-medium text-yellow-400 bg-yellow-400/10 px-2.5 py-1 rounded-lg">
-            Cerrado
-          </span>
-        ) : null}
       </div>
 
       {/* Question */}
@@ -139,12 +137,10 @@ export default function MarketCard({ market }) {
         ) : (
           <span className="text-[#5e6673]">Global</span>
         )}
-        {!isResolved && (
-          <span className="flex items-center gap-1">
-            <Clock className="w-3 h-3" />
-            {countdown}
-          </span>
-        )}
+        <span className="flex items-center gap-1">
+          <Clock className="w-3 h-3" />
+          {countdown} · {closeLabel}
+        </span>
       </div>
 
       {/* Odds Bar */}
