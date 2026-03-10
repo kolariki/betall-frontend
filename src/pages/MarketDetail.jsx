@@ -129,9 +129,12 @@ export default function MarketDetail() {
   if (!market) return <div className="text-center py-20"><p className="text-[#848e9c]">Mercado no encontrado</p></div>;
 
   const isOpen = market.status === 'open' && new Date(market.closes_at) > new Date();
+  const isClosed = market.status === 'closed' || (!isOpen && market.status === 'open');
   const isResolved = market.status === 'resolved';
   const yesPrice = market.yes_price || 0.5;
   const noPrice = market.no_price || 0.5;
+
+  const operatorLabels = { '>': 'mayor a', '<': 'menor a', '>=': 'mayor o igual a', '<=': 'menor o igual a', '==': 'igual a' };
 
   return (
     <div>
@@ -188,21 +191,67 @@ export default function MarketDetail() {
             </div>
           )}
 
-          {/* Resolution info */}
+          {/* Status Banner */}
+          {isClosed && !isResolved && (
+            <div className="bg-yellow-400/10 border border-yellow-400/20 rounded-xl p-4 flex items-center gap-3">
+              <Clock className="w-5 h-5 text-yellow-400 shrink-0" />
+              <div>
+                <p className="text-yellow-400 font-bold text-sm">Este mercado está cerrado</p>
+                <p className="text-yellow-400/60 text-xs">No se aceptan más apuestas. Esperando resolución.</p>
+              </div>
+            </div>
+          )}
+
+          {/* Resolution section */}
           <div className="glass-card p-6">
             <h3 className="text-sm font-semibold text-[#848e9c] mb-4 flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-[#00b8d4]" />
-              Condición de Resolución
+              Resolución
             </h3>
-            <div className="bg-[#1e2329] rounded-lg p-4">
-              <p className="text-sm text-[#848e9c]">
-                <span className="font-semibold text-[#eaecef]">{metricLabels[market.metric]}</span>
-                {' '}{market.operator}{' '}
-                <span className="font-semibold text-[#00b8d4]">{market.threshold}{metricUnits[market.metric]}</span>
-                {' '}en {market.city}
-              </p>
+            <div className="space-y-3">
+              {/* Status */}
+              <div className="flex items-center justify-between bg-[#1e2329] rounded-lg px-4 py-3">
+                <span className="text-xs text-[#5e6673]">Estado</span>
+                <span className={`text-sm font-bold ${isResolved ? (market.result ? 'text-[#2ebd85]' : 'text-[#f6465d]') : isClosed ? 'text-yellow-400' : 'text-[#00b8d4]'}`}>
+                  {isResolved ? `Resuelto: ${market.result ? 'SÍ' : 'NO'} ganó` : isClosed ? 'Cerrado — Esperando resolución' : 'Abierto'}
+                </span>
+              </div>
+
+              {/* Resolution date */}
+              {market.resolves_at && (
+                <div className="flex items-center justify-between bg-[#1e2329] rounded-lg px-4 py-3">
+                  <span className="text-xs text-[#5e6673]">Fecha de resolución</span>
+                  <span className="text-sm text-[#eaecef]">
+                    {new Date(market.resolves_at).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                  </span>
+                </div>
+              )}
+
+              {/* Resolution source */}
+              <div className="flex items-center justify-between bg-[#1e2329] rounded-lg px-4 py-3">
+                <span className="text-xs text-[#5e6673]">Fuente de resolución</span>
+                <span className="text-sm text-[#eaecef]">
+                  {market.resolution_type === 'auto' ? '🌐 OpenWeatherMap API' : '👤 Resolución manual por admin'}
+                </span>
+              </div>
+
+              {/* Resolution rules for weather */}
+              {market.metric && market.operator && market.threshold !== undefined && (
+                <div className="bg-[#1e2329] rounded-lg p-4">
+                  <p className="text-xs text-[#5e6673] mb-2">Regla de resolución</p>
+                  <p className="text-sm text-[#848e9c]">
+                    Se resuelve <span className="font-bold text-[#2ebd85]">SÍ</span> si{' '}
+                    <span className="font-semibold text-[#eaecef]">{metricLabels[market.metric]}</span>
+                    {' '}{operatorLabels[market.operator] || market.operator}{' '}
+                    <span className="font-semibold text-[#00b8d4]">{market.threshold}{metricUnits[market.metric]}</span>
+                    {' '}en {market.city} según OpenWeatherMap
+                  </p>
+                </div>
+              )}
+
+              {/* Current weather */}
               {market.current_weather && (
-                <div className="mt-3 pt-3 border-t border-[#2b3139]">
+                <div className="bg-[#1e2329] rounded-lg p-4">
                   <p className="text-xs text-[#5e6673] mb-2">Clima actual:</p>
                   <div className="flex flex-wrap gap-3 text-xs">
                     <span className="bg-[#1e2329] border border-[#2b3139] px-3 py-1.5 rounded-lg text-[#848e9c]">🌡️ {market.current_weather.temp}°C</span>
@@ -313,6 +362,28 @@ export default function MarketDetail() {
         {/* Sidebar: Trade + Position */}
         <div className="lg:col-span-1">
           <div className="lg:sticky lg:top-20 space-y-6 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto">
+          {/* Closed/Resolved banner in sidebar */}
+          {!isOpen && !isResolved && (
+            <div className="glass-card p-6 text-center">
+              <Clock className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
+              <p className="text-yellow-400 font-bold text-sm mb-1">Mercado cerrado</p>
+              <p className="text-[#5e6673] text-xs">Esperando resolución. No se aceptan más apuestas.</p>
+            </div>
+          )}
+          {isResolved && (
+            <div className="glass-card p-6 text-center">
+              <div className={`w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center text-2xl ${market.result ? 'bg-[#2ebd85]/20' : 'bg-[#f6465d]/20'}`}>
+                {market.result ? '✅' : '❌'}
+              </div>
+              <p className={`font-bold text-lg mb-1 ${market.result ? 'text-[#2ebd85]' : 'text-[#f6465d]'}`}>
+                {market.result ? 'SÍ' : 'NO'} ganó
+              </p>
+              {market.resolved_value !== null && market.resolved_value !== undefined && (
+                <p className="text-[#848e9c] text-xs">{metricLabels[market.metric]}: {market.resolved_value}{metricUnits[market.metric]}</p>
+              )}
+            </div>
+          )}
+
           {/* Trade panel */}
           {isOpen && (
             <div className="glass-card p-6">

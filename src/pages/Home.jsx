@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getMarkets } from '../lib/api';
 import MarketCard from '../components/MarketCard';
-import { Loader2, CloudOff, TrendingUp, Clock, Flame, Sparkles, Plus } from 'lucide-react';
+import { Loader2, CloudOff, TrendingUp, Clock, Flame, Sparkles, Plus, ChevronDown, ChevronUp, Hourglass, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import ProposeMarket from '../components/ProposeMarket';
 
@@ -26,10 +26,14 @@ const sortOptions = [
 
 export default function Home() {
   const [markets, setMarkets] = useState([]);
+  const [closedMarkets, setClosedMarkets] = useState([]);
+  const [resolvedMarkets, setResolvedMarkets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('closing');
   const [showPropose, setShowPropose] = useState(false);
+  const [showClosed, setShowClosed] = useState(false);
+  const [showResolved, setShowResolved] = useState(false);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -42,8 +46,24 @@ export default function Home() {
       const params = new URLSearchParams();
       if (category !== 'all') params.set('category', category);
       if (sort !== 'closing') params.set('sort', sort);
-      const data = await getMarkets(params.toString());
-      setMarkets(data);
+
+      // Fetch open markets
+      const openData = await getMarkets(params.toString());
+      setMarkets(openData);
+
+      // Fetch closed markets (waiting resolution)
+      const closedParams = new URLSearchParams();
+      closedParams.set('status', 'closed');
+      if (category !== 'all') closedParams.set('category', category);
+      const closedData = await getMarkets(closedParams.toString());
+      setClosedMarkets(closedData);
+
+      // Fetch recently resolved (last 5)
+      const resolvedParams = new URLSearchParams();
+      resolvedParams.set('status', 'resolved');
+      resolvedParams.set('sort', 'newest');
+      const resolvedData = await getMarkets(resolvedParams.toString());
+      setResolvedMarkets(resolvedData.slice(0, 5));
     } catch (e) {
       console.error('Error fetching markets:', e);
     } finally {
@@ -76,7 +96,6 @@ export default function Home() {
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
-        {/* Category tabs */}
         <div className="flex gap-2 overflow-x-auto pb-2 flex-1">
           {categories.map((cat) => (
             <button
@@ -94,7 +113,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Sort */}
         <div className="flex gap-2">
           {sortOptions.map((opt) => {
             const Icon = opt.icon;
@@ -116,7 +134,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Grid */}
+      {/* Open Markets Grid */}
       {loading ? (
         <div className="flex items-center justify-center min-h-[40vh]">
           <Loader2 className="w-8 h-8 animate-spin text-[#00b8d4]" />
@@ -135,7 +153,50 @@ export default function Home() {
         </div>
       )}
 
-      {/* Propose market modal */}
+      {/* Closed Markets — Waiting Resolution */}
+      {closedMarkets.length > 0 && (
+        <div className="mt-10">
+          <button
+            onClick={() => setShowClosed(!showClosed)}
+            className="flex items-center gap-3 text-[#848e9c] hover:text-[#eaecef] transition-colors mb-4 w-full"
+          >
+            <Hourglass className="w-5 h-5 text-yellow-400" />
+            <span className="text-lg font-semibold">Esperando resolución</span>
+            <span className="text-xs bg-yellow-400/10 text-yellow-400 px-2 py-0.5 rounded-full">{closedMarkets.length}</span>
+            {showClosed ? <ChevronUp className="w-4 h-4 ml-auto" /> : <ChevronDown className="w-4 h-4 ml-auto" />}
+          </button>
+          {showClosed && (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 opacity-70">
+              {closedMarkets.map((market) => (
+                <MarketCard key={market.id} market={market} variant="closed" />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Recently Resolved */}
+      {resolvedMarkets.length > 0 && (
+        <div className="mt-10">
+          <button
+            onClick={() => setShowResolved(!showResolved)}
+            className="flex items-center gap-3 text-[#848e9c] hover:text-[#eaecef] transition-colors mb-4 w-full"
+          >
+            <CheckCircle2 className="w-5 h-5 text-[#2ebd85]" />
+            <span className="text-lg font-semibold">Resueltos recientemente</span>
+            <span className="text-xs bg-[#2ebd85]/10 text-[#2ebd85] px-2 py-0.5 rounded-full">{resolvedMarkets.length}</span>
+            {showResolved ? <ChevronUp className="w-4 h-4 ml-auto" /> : <ChevronDown className="w-4 h-4 ml-auto" />}
+          </button>
+          {showResolved && (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 opacity-60">
+              {resolvedMarkets.map((market) => (
+                <MarketCard key={market.id} market={market} variant="resolved" />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       {showPropose && <ProposeMarket onClose={() => setShowPropose(false)} />}
     </div>
   );

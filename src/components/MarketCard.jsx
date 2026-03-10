@@ -93,7 +93,7 @@ function useCountdown(targetDate) {
   return timeLeft;
 }
 
-export default function MarketCard({ market }) {
+export default function MarketCard({ market, variant }) {
   const navigate = useNavigate();
   const countdown = useCountdown(market.closes_at);
   const Icon = categoryIcons[market.category] || Eye;
@@ -102,8 +102,8 @@ export default function MarketCard({ market }) {
   const isResolved = market.status === 'resolved';
   const isClosed = market.status === 'closed' || new Date(market.closes_at) <= new Date();
 
-  // Don't render resolved or closed markets
-  if (isResolved || isClosed) return null;
+  // In default mode (no variant), hide closed/resolved
+  if (!variant && (isResolved || isClosed)) return null;
 
   // Format close date
   const closesDate = new Date(market.closes_at);
@@ -127,6 +127,19 @@ export default function MarketCard({ market }) {
         {market.question}
       </h3>
 
+      {/* Status banner for closed/resolved */}
+      {variant === 'closed' && (
+        <div className="flex items-center gap-2 text-xs text-yellow-400 bg-yellow-400/10 border border-yellow-400/20 rounded-lg px-3 py-1.5 mb-3">
+          <Clock className="w-3 h-3" />
+          Esperando resolución
+        </div>
+      )}
+      {variant === 'resolved' && (
+        <div className={`flex items-center gap-2 text-xs rounded-lg px-3 py-1.5 mb-3 ${market.result ? 'text-[#2ebd85] bg-[#2ebd85]/10 border border-[#2ebd85]/20' : 'text-[#f6465d] bg-[#f6465d]/10 border border-[#f6465d]/20'}`}>
+          {market.result ? '✅' : '❌'} Resultado: {market.result ? 'SÍ' : 'NO'}
+        </div>
+      )}
+
       {/* City + Countdown */}
       <div className="flex items-center justify-between text-xs text-[#848e9c] mb-4">
         {market.city ? (
@@ -139,7 +152,7 @@ export default function MarketCard({ market }) {
         )}
         <span className="flex items-center gap-1">
           <Clock className="w-3 h-3" />
-          {countdown} · {closeLabel}
+          {variant ? closeLabel : `${countdown} · ${closeLabel}`}
         </span>
       </div>
 
