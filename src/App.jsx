@@ -27,13 +27,6 @@ export default function App() {
           }
         />
         <Route
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/profile"
           element={
             <ProtectedRoute>
