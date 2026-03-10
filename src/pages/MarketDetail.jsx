@@ -227,14 +227,6 @@ export default function MarketDetail() {
                 </div>
               )}
 
-              {/* Resolution source */}
-              <div className="flex items-center justify-between bg-[#1e2329] rounded-lg px-4 py-3">
-                <span className="text-xs text-[#5e6673]">Fuente de resolución</span>
-                <span className="text-sm text-[#eaecef]">
-                  {market.resolution_type === 'auto' ? '🌐 OpenWeatherMap API' : '👤 Resolución manual por admin'}
-                </span>
-              </div>
-
               {/* Resolution rules for weather */}
               {market.metric && market.operator && market.threshold !== undefined && (
                 <div className="bg-[#1e2329] rounded-lg p-4">
@@ -244,7 +236,7 @@ export default function MarketDetail() {
                     <span className="font-semibold text-[#eaecef]">{metricLabels[market.metric]}</span>
                     {' '}{operatorLabels[market.operator] || market.operator}{' '}
                     <span className="font-semibold text-[#00b8d4]">{market.threshold}{metricUnits[market.metric]}</span>
-                    {' '}en {market.city} según OpenWeatherMap
+                    {' '}en {market.city}
                   </p>
                 </div>
               )}
