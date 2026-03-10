@@ -9,8 +9,6 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Leaderboard from './pages/Leaderboard';
-import Admin from './pages/Admin';
-
 function AppLayout() {
   return <Layout><Outlet /></Layout>;
 }
@@ -29,7 +27,6 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/wallet" element={<ProtectedRoute><Wallet /></ProtectedRoute>} />
-        <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       </Route>
     </Routes>
