@@ -54,10 +54,8 @@ export default function Layout({ children }) {
           {/* Left: Logo + Nav */}
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <BetAllLogo className="w-50 h-40" />
-              </div>
+            <Link to="/" className="flex items-center shrink-0">
+              <BetAllLogo className="w-40 h-12" />
             </Link>
 
             {/* Nav links */}
