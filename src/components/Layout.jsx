@@ -55,7 +55,7 @@ export default function Layout({ children }) {
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link to="/" className="flex items-center shrink-0">
-              <BetAllLogo className="w-52 h-14" />
+              <BetAllLogo className="w-72 h-16" />
             </Link>
 
             {/* Nav links */}
