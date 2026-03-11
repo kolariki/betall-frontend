@@ -100,7 +100,7 @@ export default function Wallet() {
     win: { icon: ArrowUpRight, color: 'text-[#2ebd85]', label: 'Ganancia', prefix: '+' },
     daily_claim: { icon: Gift, color: 'text-[#FCD535]', label: 'Créditos diarios', prefix: '+' },
     refund: { icon: ArrowUpRight, color: 'text-[#FCD535]', label: 'Reembolso', prefix: '+' },
-    purchase: { icon: CreditCard, color: 'text-[#2ebd85]', label: 'Compra', prefix: '+' },
+    purchase: { icon: ArrowUpRight, color: 'text-[#2ebd85]', label: 'Compra', prefix: '+' },
     token_deposit: { icon: ArrowDownRight, color: 'text-[#FCD535]', label: 'Depósito BETALL', prefix: '+' },
     token_withdraw: { icon: ArrowUpRight, color: 'text-[#FCD535]', label: 'Retiro BETALL', prefix: '' },
   };
