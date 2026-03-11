@@ -50,7 +50,7 @@ export default function Layout({ children }) {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 shrink-0">
               <div className="w-8 h-8 flex items-center justify-center">
-                <BetAllLogo className="w-28 h-10" />
+                <BetAllLogo className="w-32 h-11" />
               </div>
               
             </Link>
