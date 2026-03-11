@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
 import { Mail, Lock, User, Loader2 } from 'lucide-react';
-import BetAllLogo from '../components/BetAllLogo';
+import BetAllLogoRegister from '../components/BetAllLogoRegister';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -44,7 +44,7 @@ export default function Register() {
       <div className="fixed inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-20 pointer-events-none" />
       <div className="glass-card p-8 w-full max-w-md relative z-10">
         <div className="flex items-center justify-center mb-8">
-          <BetAllLogo className="w-44 h-16" />
+          <BetAllLogoRegister className="w-64 h-24 mb-2" />
         </div>
 
         <button
