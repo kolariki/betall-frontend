@@ -2,10 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import {
-  Home, Wallet, User, Trophy, LogOut, TrendingUp, Coins, ChevronDown,
+  Home, Wallet, User, Trophy, LogOut, Coins, ChevronDown,
 } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 
+import BetAllLogo from './BetAllLogo';
 const navItems = [
   { path: '/', label: 'Mercados', icon: Home },
   { path: '/wallet', label: 'Billetera', icon: Wallet, auth: true },
@@ -48,8 +49,8 @@ export default function Layout({ children }) {
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 shrink-0">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 flex items-center justify-center">
+                <BetAllLogo className="w-8 h-8" />
               </div>
               <span className="text-lg font-bold gradient-text hidden sm:block">BetAll</span>
             </Link>
