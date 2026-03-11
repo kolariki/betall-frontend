@@ -1,17 +1,23 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useState, useRef, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import {
-  Home, Wallet, User, Trophy, LogOut, Coins, ChevronDown,
-} from 'lucide-react';
-import WalletConnect from './WalletConnect';
+  Home,
+  Wallet,
+  User,
+  Trophy,
+  LogOut,
+  Coins,
+  ChevronDown,
+} from "lucide-react";
+import WalletConnect from "./WalletConnect";
 
-import BetAllLogo from './BetAllLogo';
+import BetAllLogo from "./BetAllLogo";
 const navItems = [
-  { path: '/', label: 'Mercados', icon: Home },
-  { path: '/wallet', label: 'Billetera', icon: Wallet, auth: true },
-  { path: '/profile', label: 'Perfil', icon: User, auth: true },
-  { path: '/leaderboard', label: 'Ranking', icon: Trophy },
+  { path: "/", label: "Mercados", icon: Home },
+  { path: "/wallet", label: "Billetera", icon: Wallet, auth: true },
+  { path: "/profile", label: "Perfil", icon: User, auth: true },
+  { path: "/leaderboard", label: "Ranking", icon: Trophy },
 ];
 
 export default function Layout({ children }) {
@@ -24,7 +30,7 @@ export default function Layout({ children }) {
   const handleSignOut = async () => {
     setProfileOpen(false);
     await signOut();
-    navigate('/login');
+    navigate("/login");
   };
 
   const filteredNav = navItems.filter((item) => !item.auth || user);
@@ -36,8 +42,8 @@ export default function Layout({ children }) {
         setProfileOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   return (
@@ -48,11 +54,10 @@ export default function Layout({ children }) {
           {/* Left: Logo + Nav */}
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 shrink-0">
+            <Link to="/" className="flex items-center">
               <div className="w-8 h-8 flex items-center justify-center">
-                <BetAllLogo className="w-32 h-11" />
+                <BetAllLogo className="w-50 h-40" />
               </div>
-              
             </Link>
 
             {/* Nav links */}
@@ -66,8 +71,8 @@ export default function Layout({ children }) {
                     to={item.path}
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                       active
-                        ? 'text-[#00b8d4] bg-[#00b8d4]/10'
-                        : 'text-[#848e9c] hover:text-[#eaecef] hover:bg-[#1e2329]'
+                        ? "text-[#00b8d4] bg-[#00b8d4]/10"
+                        : "text-[#848e9c] hover:text-[#eaecef] hover:bg-[#1e2329]"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -101,9 +106,11 @@ export default function Layout({ children }) {
                   className="flex items-center gap-2 hover:bg-[#1e2329] rounded-lg px-2 py-1.5 transition-all"
                 >
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center text-xs font-bold text-white">
-                    {profile?.username?.[0]?.toUpperCase() || '?'}
+                    {profile?.username?.[0]?.toUpperCase() || "?"}
                   </div>
-                  <ChevronDown className={`w-3.5 h-3.5 text-[#848e9c] transition-transform ${profileOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 text-[#848e9c] transition-transform ${profileOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
 
                 {/* Dropdown */}
@@ -113,16 +120,22 @@ export default function Layout({ children }) {
                     <div className="p-4 border-b border-[#2b3139]">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center text-sm font-bold text-white">
-                          {profile?.username?.[0]?.toUpperCase() || '?'}
+                          {profile?.username?.[0]?.toUpperCase() || "?"}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold text-[#eaecef] truncate">{profile?.username || 'Usuario'}</p>
-                          <p className="text-xs text-[#848e9c] truncate">{user?.email}</p>
+                          <p className="text-sm font-semibold text-[#eaecef] truncate">
+                            {profile?.username || "Usuario"}
+                          </p>
+                          <p className="text-xs text-[#848e9c] truncate">
+                            {user?.email}
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 mt-3 bg-[#1e2329] rounded-lg px-3 py-2">
                         <Coins className="w-4 h-4 text-[#00b8d4]" />
-                        <span className="text-sm font-bold text-[#eaecef]">{(profile?.balance_credits || 0).toLocaleString()}</span>
+                        <span className="text-sm font-bold text-[#eaecef]">
+                          {(profile?.balance_credits || 0).toLocaleString()}
+                        </span>
                         <span className="text-xs text-[#5e6673]">créditos</span>
                       </div>
                     </div>
@@ -169,10 +182,7 @@ export default function Layout({ children }) {
                 )}
               </div>
             ) : (
-              <Link
-                to="/login"
-                className="btn-primary text-sm px-4 py-2"
-              >
+              <Link to="/login" className="btn-primary text-sm px-4 py-2">
                 Iniciar Sesión
               </Link>
             )}

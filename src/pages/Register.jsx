@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import toast from 'react-hot-toast';
-import { Mail, Lock, User, Loader2 } from 'lucide-react';
-import BetAllLogoRegister from '../components/BetAllLogoRegister';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import toast from "react-hot-toast";
+import { Mail, Lock, User, Loader2 } from "lucide-react";
+import BetAllLogoRegister from "../components/BetAllLogoRegister";
+import BetAllLogo from "../components/BetAllLogo";
 
 export default function Register() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
   const { signUp, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
@@ -16,16 +17,16 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (password.length < 6) {
-      toast.error('La contraseña debe tener al menos 6 caracteres');
+      toast.error("La contraseña debe tener al menos 6 caracteres");
       return;
     }
     setLoading(true);
     try {
       await signUp(email, password, username);
-      toast.success('¡Cuenta creada! Revisa tu email para confirmar.');
-      navigate('/');
+      toast.success("¡Cuenta creada! Revisa tu email para confirmar.");
+      navigate("/");
     } catch (error) {
-      toast.error(error.message || 'Error al registrarse');
+      toast.error(error.message || "Error al registrarse");
     } finally {
       setLoading(false);
     }
@@ -35,7 +36,7 @@ export default function Register() {
     try {
       await signInWithGoogle();
     } catch (error) {
-      toast.error('Error con Google OAuth');
+      toast.error("Error con Google OAuth");
     }
   }
 
@@ -43,8 +44,11 @@ export default function Register() {
     <div className="min-h-[80vh] flex items-center justify-center relative">
       <div className="fixed inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-20 pointer-events-none" />
       <div className="glass-card p-8 w-full max-w-md relative z-10">
-        <div className="flex items-center justify-center mb-8">
-          <BetAllLogoRegister className="w-64 h-24 mb-2" />
+        <div className="flex items-center justify-center">
+          <BetAllLogo className="w-50 h-40" />
+        </div>
+        <div className="flex items-center justify-center">
+          <BetAllLogoRegister className="w-40 h-30 mb-2" />
         </div>
 
         <button
@@ -52,10 +56,22 @@ export default function Register() {
           className="w-full flex items-center justify-center gap-3 bg-[#1e2329] hover:bg-[#2b3139] border border-[#2b3139] rounded-lg py-3 text-sm font-medium text-[#eaecef] transition-all mb-6"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+            <path
+              fill="#4285F4"
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+            />
+            <path
+              fill="#34A853"
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+            />
+            <path
+              fill="#FBBC05"
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+            />
+            <path
+              fill="#EA4335"
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+            />
           </svg>
           Continuar con Google
         </button>
@@ -68,7 +84,9 @@ export default function Register() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs text-[#848e9c] mb-1.5">Nombre de usuario</label>
+            <label className="block text-xs text-[#848e9c] mb-1.5">
+              Nombre de usuario
+            </label>
             <div className="relative">
               <User className="absolute left-3 top-3 w-4 h-4 text-[#5e6673]" />
               <input
@@ -98,7 +116,9 @@ export default function Register() {
           </div>
 
           <div>
-            <label className="block text-xs text-[#848e9c] mb-1.5">Contraseña</label>
+            <label className="block text-xs text-[#848e9c] mb-1.5">
+              Contraseña
+            </label>
             <div className="relative">
               <Lock className="absolute left-3 top-3 w-4 h-4 text-[#5e6673]" />
               <input
@@ -118,13 +138,20 @@ export default function Register() {
             disabled={loading}
             className="btn-primary w-full flex items-center justify-center gap-2"
           >
-            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Crear Cuenta'}
+            {loading ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              "Crear Cuenta"
+            )}
           </button>
         </form>
 
         <p className="text-sm text-[#848e9c] text-center mt-6">
-          ¿Ya tienes cuenta?{' '}
-          <Link to="/login" className="text-[#00b8d4] hover:text-[#00e5ff] font-medium">
+          ¿Ya tienes cuenta?{" "}
+          <Link
+            to="/login"
+            className="text-[#00b8d4] hover:text-[#00e5ff] font-medium"
+          >
             Inicia sesión
           </Link>
         </p>

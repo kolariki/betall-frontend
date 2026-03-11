@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { Mail, Lock, Loader2 } from "lucide-react";
-import BetAllLogoLogin from '../components/BetAllLogoLogin';
+import BetAllLogo from "../components/BetAllLogo";
+import BetAllLogoLogin from "../components/BetAllLogoLogin";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -39,8 +40,11 @@ export default function Login() {
       <div className="fixed inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-20 pointer-events-none" />
       <div className="glass-card p-8 w-full max-w-md relative z-10">
         {/* Logo */}
-        <div className="flex items-center justify-center mb-20">
-          <BetAllLogoLogin className="w-64 h-24 mb-2" />
+        <div className="flex items-center justify-center">
+          <BetAllLogo className="w-100 h-40" />
+        </div>
+        <div className="flex items-center justify-center">
+          <BetAllLogoLogin className="w-40 h-30 mb-2" />
         </div>
 
         {/* Google button */}
