@@ -39,8 +39,9 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center">
-      <div className="glass-card p-8 w-full max-w-md">
+    <div className="min-h-[80vh] flex items-center justify-center relative">
+      <div className="fixed inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-20 pointer-events-none" />
+      <div className="glass-card p-8 w-full max-w-md relative z-10">
         <div className="text-center mb-8">
           <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center mx-auto mb-4">
             <TrendingUp className="w-8 h-8 text-white" />

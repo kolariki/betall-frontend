@@ -98,9 +98,10 @@ export default function NeonLanding() {
   return (
     <>
       <style>{`
-        .neon-landing { width: 100%; height: 100vh; overflow: hidden; background: #000; font-family: 'Orbitron', sans-serif; position: fixed; top: 0; left: 0; z-index: 9999; }
-        .neon-landing canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-        .neon-landing .nl-container { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; user-select: none; }
+        .neon-landing { width: 100%; height: 100vh; overflow: hidden; background: #000 url('/bg-hero.jpg') center/cover no-repeat; font-family: 'Orbitron', sans-serif; position: fixed; top: 0; left: 0; z-index: 9999; }
+        .neon-landing::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.7); z-index: 0; }
+        .neon-landing canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .neon-landing .nl-container { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; user-select: none; }
         .neon-landing .logo-wrap { position: relative; margin-bottom: 8px; }
         .neon-landing .logo { font-size: clamp(3rem, 12vw, 8rem); font-weight: 900; color: #fff; letter-spacing: .08em; display: flex; justify-content: center; }
         .neon-landing .logo .letter { opacity: 0; transform: translateY(20px); display: inline-block; filter: blur(4px); }

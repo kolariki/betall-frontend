@@ -74,7 +74,10 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <div className="mb-8">
+      <div className="relative mb-8 -mx-4 lg:-mx-6 px-4 lg:px-6 py-8 rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e11] via-transparent to-[#0b0e11]" />
+        <div className="relative z-10">
         <h1 className="text-3xl lg:text-4xl font-bold mb-2">
           <span className="gradient-text">Mercados de Predicciones</span>
         </h1>
@@ -91,6 +94,7 @@ export default function Home() {
               <span className="hidden sm:inline">Proponer mercado</span>
             </button>
           )}
+        </div>
         </div>
       </div>
 
