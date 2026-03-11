@@ -50,9 +50,9 @@ export default function Layout({ children }) {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 shrink-0">
               <div className="w-8 h-8 flex items-center justify-center">
-                <BetAllLogo className="w-8 h-8" />
+                <BetAllLogo className="w-24 h-8" />
               </div>
-              <span className="text-lg font-bold gradient-text hidden sm:block">BetAll</span>
+              
             </Link>
 
             {/* Nav links */}
