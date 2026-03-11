@@ -8,14 +8,8 @@ import ProposeMarket from '../components/ProposeMarket';
 const categories = [
   { key: 'all', label: 'Todos', emoji: '🌐' },
   { key: 'politics', label: 'Política', emoji: '🏛️' },
-  { key: 'sports', label: 'Deportes', emoji: '⚽' },
-  { key: 'crypto', label: 'Crypto', emoji: '₿' },
-  { key: 'entertainment', label: 'Entretenimiento', emoji: '🎬' },
-  { key: 'economy', label: 'Economía', emoji: '📈' },
-  { key: 'technology', label: 'Tecnología', emoji: '💻' },
-  { key: 'science', label: 'Ciencia', emoji: '🔬' },
   { key: 'weather', label: 'Clima', emoji: '⛈️' },
-  { key: 'culture', label: 'Cultura', emoji: '🎭' },
+  { key: 'sports', label: 'Deportes', emoji: '⚽' },
 ];
 
 const sortOptions = [

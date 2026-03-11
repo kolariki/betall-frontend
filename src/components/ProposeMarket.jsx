@@ -6,15 +6,8 @@ import toast from 'react-hot-toast';
 
 const categories = [
   { key: 'politics', label: 'Política' },
-  { key: 'sports', label: 'Deportes' },
-  { key: 'crypto', label: 'Crypto' },
-  { key: 'entertainment', label: 'Entretenimiento' },
-  { key: 'economy', label: 'Economía' },
-  { key: 'technology', label: 'Tecnología' },
-  { key: 'science', label: 'Ciencia' },
   { key: 'weather', label: 'Clima' },
-  { key: 'culture', label: 'Cultura' },
-  { key: 'other', label: 'Otro' },
+  { key: 'sports', label: 'Deportes' },
 ];
 
 export default function ProposeMarket({ onClose }) {
