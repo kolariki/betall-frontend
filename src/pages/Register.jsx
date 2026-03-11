@@ -43,12 +43,8 @@ export default function Register() {
     <div className="min-h-[80vh] flex items-center justify-center relative">
       <div className="fixed inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-20 pointer-events-none" />
       <div className="glass-card p-8 w-full max-w-md relative z-10">
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center mx-auto mb-4">
-            <BetAllLogo className="w-32 h-12 -mt-2" />
-          </div>
-          <h1 className="text-2xl font-bold gradient-text">Crear Cuenta</h1>
-          <p className="text-sm text-[#848e9c] mt-1">Únete a BetAll — recibes 1,000 créditos gratis</p>
+        <div className="flex items-center justify-center mb-8">
+          <BetAllLogo className="w-44 h-16" />
         </div>
 
         <button

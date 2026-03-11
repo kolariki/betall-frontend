@@ -39,12 +39,8 @@ export default function Login() {
       <div className="fixed inset-0 bg-[url('/bg-hero.jpg')] bg-center bg-cover opacity-20 pointer-events-none" />
       <div className="glass-card p-8 w-full max-w-md relative z-10">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center mx-auto mb-4">
-            <BetAllLogo className="w-32 h-12 -mt-2" />
-          </div>
-          <h1 className="text-2xl font-bold gradient-text">Iniciar Sesión</h1>
-          <p className="text-sm text-[#848e9c] mt-1">Ingresa a tu cuenta de BetAll</p>
+        <div className="flex items-center justify-center mb-8">
+          <BetAllLogo className="w-44 h-16" />
         </div>
 
         {/* Google button */}
