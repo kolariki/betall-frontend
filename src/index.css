@@ -27,7 +27,7 @@
     @apply bg-gradient-to-r from-[#00b8d4] to-[#00e5ff] bg-clip-text text-transparent;
   }
   .btn-primary {
-    @apply bg-[#00b8d4] hover:bg-[#00e5ff] text-white font-semibold py-2.5 px-6 rounded-lg transition-all duration-200;
+    @apply bg-[#FCD535] hover:bg-[#e5c230] text-[#0b0e11] font-semibold py-2.5 px-6 rounded-lg transition-all duration-200;
   }
   .btn-yes {
     @apply bg-[#2ebd85]/20 hover:bg-[#2ebd85]/30 text-[#2ebd85] border border-[#2ebd85]/30 font-semibold py-2.5 px-6 rounded-lg transition-all duration-200;
