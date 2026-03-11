@@ -26,7 +26,7 @@ export default function Profile() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Loader2 className="w-8 h-8 animate-spin text-[#00b8d4]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#FCD535]" />
       </div>
     );
   }
@@ -34,9 +34,9 @@ export default function Profile() {
   if (!profile) return <p className="text-[#848e9c]">Error al cargar perfil</p>;
 
   const stats = [
-    { label: 'Total Apuestas', value: profile.total_bets, icon: Target, color: 'text-[#00b8d4]' },
+    { label: 'Total Apuestas', value: profile.total_bets, icon: Target, color: 'text-[#FCD535]' },
     { label: 'Victorias', value: profile.total_wins, icon: Trophy, color: 'text-[#2ebd85]' },
-    { label: 'Win Rate', value: `${profile.win_rate}%`, icon: Percent, color: 'text-[#00b8d4]' },
+    { label: 'Win Rate', value: `${profile.win_rate}%`, icon: Percent, color: 'text-[#FCD535]' },
     {
       label: 'Ganancia Total',
       value: `${profile.total_profit >= 0 ? '+' : ''}${profile.total_profit.toLocaleString()}`,
@@ -49,7 +49,7 @@ export default function Profile() {
     <div>
       {/* Header */}
       <div className="glass-card p-8 mb-8 flex items-center gap-6">
-        <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center text-2xl font-bold text-white">
+        <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-[#FCD535] to-[#FFE066] flex items-center justify-center text-2xl font-bold text-white">
           {profile.username?.[0]?.toUpperCase() || '?'}
         </div>
         <div>
@@ -83,7 +83,7 @@ export default function Profile() {
         {!profile.recent_bets || profile.recent_bets.length === 0 ? (
           <div className="text-center py-12 text-[#5e6673]">
             <p>Aún no has realizado apuestas</p>
-            <Link to="/" className="text-[#00b8d4] hover:text-[#00e5ff] text-sm mt-2 inline-block">
+            <Link to="/" className="text-[#FCD535] hover:text-[#FFE066] text-sm mt-2 inline-block">
               Explorar mercados →
             </Link>
           </div>

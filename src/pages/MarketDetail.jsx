@@ -125,7 +125,7 @@ export default function MarketDetail() {
     finally { setSelling(null); }
   }
 
-  if (loading) return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="w-8 h-8 animate-spin text-[#00b8d4]" /></div>;
+  if (loading) return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="w-8 h-8 animate-spin text-[#FCD535]" /></div>;
   if (!market) return <div className="text-center py-20"><p className="text-[#848e9c]">Mercado no encontrado</p></div>;
 
   const isOpen = market.status === 'open' && new Date(market.closes_at) > new Date();
@@ -184,7 +184,7 @@ export default function MarketDetail() {
           {priceHistory.length >= 2 && (
             <div className="glass-card p-6">
               <h3 className="text-sm font-semibold text-[#848e9c] mb-4 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-[#00b8d4]" />
+                <TrendingUp className="w-4 h-4 text-[#FCD535]" />
                 Historial de Precios
               </h3>
               <PriceChart data={priceHistory} height={typeof window !== 'undefined' && window.innerWidth < 768 ? 220 : 350} />
@@ -205,14 +205,14 @@ export default function MarketDetail() {
           {/* Resolution section */}
           <div className="glass-card p-6">
             <h3 className="text-sm font-semibold text-[#848e9c] mb-4 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#00b8d4]" />
+              <TrendingUp className="w-4 h-4 text-[#FCD535]" />
               Resolución
             </h3>
             <div className="space-y-3">
               {/* Status */}
               <div className="flex items-center justify-between bg-[#1e2329] rounded-lg px-4 py-3">
                 <span className="text-xs text-[#5e6673]">Estado</span>
-                <span className={`text-sm font-bold ${isResolved ? (market.result ? 'text-[#2ebd85]' : 'text-[#f6465d]') : isClosed ? 'text-yellow-400' : 'text-[#00b8d4]'}`}>
+                <span className={`text-sm font-bold ${isResolved ? (market.result ? 'text-[#2ebd85]' : 'text-[#f6465d]') : isClosed ? 'text-yellow-400' : 'text-[#FCD535]'}`}>
                   {isResolved ? `Resuelto: ${market.result ? 'SÍ' : 'NO'} ganó` : isClosed ? 'Cerrado — Esperando resolución' : 'Abierto'}
                 </span>
               </div>
@@ -235,7 +235,7 @@ export default function MarketDetail() {
                     Se resuelve <span className="font-bold text-[#2ebd85]">SÍ</span> si{' '}
                     <span className="font-semibold text-[#eaecef]">{metricLabels[market.metric]}</span>
                     {' '}{operatorLabels[market.operator] || market.operator}{' '}
-                    <span className="font-semibold text-[#00b8d4]">{market.threshold}{metricUnits[market.metric]}</span>
+                    <span className="font-semibold text-[#FCD535]">{market.threshold}{metricUnits[market.metric]}</span>
                     {' '}en {market.city}
                   </p>
                 </div>
@@ -394,13 +394,13 @@ export default function MarketDetail() {
 
               <label className="block text-xs text-[#848e9c] mb-2">Monto (créditos)</label>
               <input type="number" value={amount} onChange={(e) => setAmount(Math.max(0, parseInt(e.target.value) || 0))}
-                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-3 text-[#eaecef] text-lg font-bold focus:outline-none focus:border-[#00b8d4]/50 mb-3" min="1" />
+                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-3 text-[#eaecef] text-lg font-bold focus:outline-none focus:border-[#FCD535]/50 mb-3" min="1" />
 
               <div className="flex gap-2 mb-5">
                 {[50, 100, 250, 500].map(v => (
                   <button key={v} onClick={() => setAmount(v)} className="flex-1 text-xs py-2 rounded-lg bg-[#1e2329] text-[#848e9c] hover:bg-[#2b3139] font-medium">+{v}</button>
                 ))}
-                {profile && <button onClick={() => setAmount(profile.balance_credits)} className="flex-1 text-xs py-2 rounded-lg bg-[#00b8d4]/10 text-[#00b8d4] hover:bg-[#00b8d4]/20 font-medium">Max</button>}
+                {profile && <button onClick={() => setAmount(profile.balance_credits)} className="flex-1 text-xs py-2 rounded-lg bg-[#FCD535]/10 text-[#FCD535] hover:bg-[#FCD535]/20 font-medium">Max</button>}
               </div>
 
               {/* AMM Quote preview */}
@@ -442,7 +442,7 @@ export default function MarketDetail() {
                 <div className="text-xs text-[#5e6673] text-center mt-3 space-y-1">
                   <p>Balance: {profile.balance_credits.toLocaleString()} créditos</p>
                   {walletConnected && parseFloat(tokenBalance) > 0 && (
-                    <p className="flex items-center justify-center gap-1 text-[#00b8d4]">
+                    <p className="flex items-center justify-center gap-1 text-[#FCD535]">
                       <Wallet className="w-3 h-3" />
                       {parseFloat(tokenBalance).toLocaleString(undefined, { maximumFractionDigits: 0 })} BETALL
                     </p>
@@ -456,7 +456,7 @@ export default function MarketDetail() {
           {market.user_position && (
             <div className="glass-card p-6">
               <h3 className="text-lg font-bold text-[#eaecef] mb-4 flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-[#00b8d4]" />
+                <DollarSign className="w-5 h-5 text-[#FCD535]" />
                 Tu Posición
               </h3>
 

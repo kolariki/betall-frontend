@@ -88,7 +88,7 @@ export default function Home() {
           {user && (
             <button
               onClick={() => setShowPropose(true)}
-              className="flex items-center gap-2 bg-[#00b8d4] hover:bg-[#00d4f5] text-white text-sm font-bold px-4 py-2 rounded-lg transition-all shrink-0"
+              className="flex items-center gap-2 bg-[#FCD535] hover:bg-[#00d4f5] text-white text-sm font-bold px-4 py-2 rounded-lg transition-all shrink-0"
             >
               <Plus className="w-4 h-4" />
               <span className="hidden sm:inline">Proponer mercado</span>
@@ -107,7 +107,7 @@ export default function Home() {
               onClick={() => setCategory(cat.key)}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
                 category === cat.key
-                  ? 'bg-[#00b8d4]/10 text-[#00b8d4] border border-[#00b8d4]/30'
+                  ? 'bg-[#FCD535]/10 text-[#FCD535] border border-[#FCD535]/30'
                   : 'bg-[#1e2329] text-[#848e9c] hover:bg-[#2b3139] border border-transparent'
               }`}
             >
@@ -141,7 +141,7 @@ export default function Home() {
       {/* Open Markets Grid */}
       {loading ? (
         <div className="flex items-center justify-center min-h-[40vh]">
-          <Loader2 className="w-8 h-8 animate-spin text-[#00b8d4]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#FCD535]" />
         </div>
       ) : markets.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">

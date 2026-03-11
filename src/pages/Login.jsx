@@ -44,7 +44,7 @@ export default function Login() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
                 placeholder="tu@email.com"
                 required
               />
@@ -61,7 +61,7 @@ export default function Login() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
                 placeholder="••••••••"
                 required
               />
@@ -85,7 +85,7 @@ export default function Login() {
           ¿No tienes cuenta?{" "}
           <Link
             to="/register"
-            className="text-[#00b8d4] hover:text-[#00e5ff] font-medium"
+            className="text-[#FCD535] hover:text-[#FFE066] font-medium"
           >
             Regístrate
           </Link>

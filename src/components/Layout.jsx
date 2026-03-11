@@ -69,7 +69,7 @@ export default function Layout({ children }) {
                     to={item.path}
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                       active
-                        ? "text-[#00b8d4] bg-[#00b8d4]/10"
+                        ? "text-[#FCD535] bg-[#FCD535]/10"
                         : "text-[#848e9c] hover:text-[#eaecef] hover:bg-[#1e2329]"
                     }`}
                   >
@@ -86,7 +86,7 @@ export default function Layout({ children }) {
             {/* Credits badge */}
             {user && profile && (
               <div className="flex items-center gap-1.5 bg-[#1e2329] border border-[#2b3139] rounded-lg px-3 py-1.5">
-                <Coins className="w-3.5 h-3.5 text-[#00b8d4]" />
+                <Coins className="w-3.5 h-3.5 text-[#FCD535]" />
                 <span className="text-sm font-semibold text-[#eaecef]">
                   {profile.balance_credits.toLocaleString()}
                 </span>
@@ -103,7 +103,7 @@ export default function Layout({ children }) {
                   onClick={() => setProfileOpen(!profileOpen)}
                   className="flex items-center gap-2 hover:bg-[#1e2329] rounded-lg px-2 py-1.5 transition-all"
                 >
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center text-xs font-bold text-white">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FCD535] to-[#FFE066] flex items-center justify-center text-xs font-bold text-white">
                     {profile?.username?.[0]?.toUpperCase() || "?"}
                   </div>
                   <ChevronDown
@@ -117,7 +117,7 @@ export default function Layout({ children }) {
                     {/* User info */}
                     <div className="p-4 border-b border-[#2b3139]">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center text-sm font-bold text-white">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FCD535] to-[#FFE066] flex items-center justify-center text-sm font-bold text-white">
                           {profile?.username?.[0]?.toUpperCase() || "?"}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -130,7 +130,7 @@ export default function Layout({ children }) {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 mt-3 bg-[#1e2329] rounded-lg px-3 py-2">
-                        <Coins className="w-4 h-4 text-[#00b8d4]" />
+                        <Coins className="w-4 h-4 text-[#FCD535]" />
                         <span className="text-sm font-bold text-[#eaecef]">
                           {(profile?.balance_credits || 0).toLocaleString()}
                         </span>

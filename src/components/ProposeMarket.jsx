@@ -55,7 +55,7 @@ export default function ProposeMarket({ onClose }) {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-[#2b3139]">
           <h3 className="text-lg font-bold text-[#eaecef] flex items-center gap-2">
-            <Lightbulb className="w-5 h-5 text-[#00b8d4]" />
+            <Lightbulb className="w-5 h-5 text-[#FCD535]" />
             Proponer un mercado
           </h3>
           <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-[#1e2329] text-[#848e9c] hover:text-[#eaecef] transition-all">
@@ -73,7 +73,7 @@ export default function ProposeMarket({ onClose }) {
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="¿Bitcoin superará los $150,000 antes de julio 2026?"
-              className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+              className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
               required
               minLength={10}
             />
@@ -86,7 +86,7 @@ export default function ProposeMarket({ onClose }) {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Se resuelve SÍ si BTC/USD toca $150,000 en cualquier exchange principal..."
-              className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50 h-20 resize-none"
+              className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50 h-20 resize-none"
             />
           </div>
 
@@ -96,7 +96,7 @@ export default function ProposeMarket({ onClose }) {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+              className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
             >
               {categories.map((c) => (
                 <option key={c.key} value={c.key}>{c.label}</option>
@@ -115,7 +115,7 @@ export default function ProposeMarket({ onClose }) {
                   onClick={() => setClosesInDays(d)}
                   className={`flex-1 py-2 rounded-lg text-xs font-medium transition-all ${
                     closesInDays === d
-                      ? 'bg-[#00b8d4]/10 text-[#00b8d4] border border-[#00b8d4]/30'
+                      ? 'bg-[#FCD535]/10 text-[#FCD535] border border-[#FCD535]/30'
                       : 'bg-[#1e2329] text-[#848e9c] border border-[#2b3139] hover:bg-[#2b3139]'
                   }`}
                 >
@@ -129,7 +129,7 @@ export default function ProposeMarket({ onClose }) {
           <button
             type="submit"
             disabled={loading || question.length < 10}
-            className="w-full py-3 rounded-lg bg-[#00b8d4] text-white font-bold text-sm hover:bg-[#00d4f5] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-lg bg-[#FCD535] text-white font-bold text-sm hover:bg-[#00d4f5] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
             Enviar propuesta

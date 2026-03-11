@@ -30,16 +30,16 @@ export default function PriceChart({ data, height = 300 }) {
       crosshair: {
         mode: CrosshairMode.Normal,
         vertLine: {
-          color: '#00b8d4',
+          color: '#FCD535',
           width: 1,
           style: 2,
-          labelBackgroundColor: '#00b8d4',
+          labelBackgroundColor: '#FCD535',
         },
         horzLine: {
-          color: '#00b8d4',
+          color: '#FCD535',
           width: 1,
           style: 2,
-          labelBackgroundColor: '#00b8d4',
+          labelBackgroundColor: '#FCD535',
         },
       },
       rightPriceScale: {
@@ -64,11 +64,11 @@ export default function PriceChart({ data, height = 300 }) {
     const areaSeries = chart.addAreaSeries({
       topColor: 'rgba(0, 184, 212, 0.4)',
       bottomColor: 'rgba(0, 184, 212, 0.02)',
-      lineColor: '#00b8d4',
+      lineColor: '#FCD535',
       lineWidth: 2,
       crosshairMarkerVisible: true,
       crosshairMarkerRadius: 5,
-      crosshairMarkerBorderColor: '#00b8d4',
+      crosshairMarkerBorderColor: '#FCD535',
       crosshairMarkerBackgroundColor: '#0b0e11',
       crosshairMarkerBorderWidth: 2,
       priceFormat: {
@@ -180,7 +180,7 @@ export default function PriceChart({ data, height = 300 }) {
       <div className="flex items-center gap-4 mb-3">
         <div className="flex items-center gap-2">
           <span className="text-xs text-[#848e9c]">SÍ</span>
-          <span className="text-lg font-bold text-[#00b8d4]">{lastPrice.toFixed(1)}%</span>
+          <span className="text-lg font-bold text-[#FCD535]">{lastPrice.toFixed(1)}%</span>
         </div>
         <div className={`flex items-center gap-1 text-sm font-medium ${change >= 0 ? 'text-[#2ebd85]' : 'text-[#f6465d]'}`}>
           {change >= 0 ? '▲' : '▼'} {Math.abs(change).toFixed(1)}%
@@ -189,7 +189,7 @@ export default function PriceChart({ data, height = 300 }) {
           </span>
         </div>
         <div className="flex items-center gap-2 ml-auto">
-          <span className="w-3 h-0.5 bg-[#00b8d4] rounded-full inline-block" />
+          <span className="w-3 h-0.5 bg-[#FCD535] rounded-full inline-block" />
           <span className="text-[10px] text-[#5e6673]">SÍ</span>
           <span className="w-3 h-0.5 bg-[#f6465d] rounded-full inline-block ml-2" style={{ opacity: 0.5 }} />
           <span className="text-[10px] text-[#5e6673]">NO</span>
@@ -212,7 +212,7 @@ export default function PriceChart({ data, height = 300 }) {
           <div className="flex items-center gap-3">
             <div>
               <span className="text-[10px] text-[#848e9c]">SÍ </span>
-              <span className="text-sm font-bold text-[#00b8d4]">{tooltip.yes}%</span>
+              <span className="text-sm font-bold text-[#FCD535]">{tooltip.yes}%</span>
             </div>
             <div>
               <span className="text-[10px] text-[#848e9c]">NO </span>

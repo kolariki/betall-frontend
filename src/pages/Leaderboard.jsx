@@ -23,7 +23,7 @@ export default function Leaderboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Loader2 className="w-8 h-8 animate-spin text-[#00b8d4]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#FCD535]" />
       </div>
     );
   }
@@ -61,7 +61,7 @@ export default function Leaderboard() {
                 {i < 3 ? medals[i] : <span className="text-sm text-[#5e6673]">{i + 1}</span>}
               </span>
               <div className="flex items-center gap-3 min-w-0">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00b8d4] to-[#00e5ff] flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FCD535] to-[#FFE066] flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
                   {user.username?.[0]?.toUpperCase() || '?'}
                 </div>
                 <span className="text-sm font-medium text-[#eaecef] truncate">{user.username}</span>

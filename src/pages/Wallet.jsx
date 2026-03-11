@@ -88,7 +88,7 @@ export default function Wallet() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Loader2 className="w-8 h-8 animate-spin text-[#00b8d4]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#FCD535]" />
       </div>
     );
   }
@@ -98,11 +98,11 @@ export default function Wallet() {
   const typeConfig = {
     bet: { icon: ArrowDownRight, color: 'text-[#f6465d]', label: 'Apuesta', prefix: '' },
     win: { icon: ArrowUpRight, color: 'text-[#2ebd85]', label: 'Ganancia', prefix: '+' },
-    daily_claim: { icon: Gift, color: 'text-[#00b8d4]', label: 'Créditos diarios', prefix: '+' },
-    refund: { icon: ArrowUpRight, color: 'text-[#00b8d4]', label: 'Reembolso', prefix: '+' },
+    daily_claim: { icon: Gift, color: 'text-[#FCD535]', label: 'Créditos diarios', prefix: '+' },
+    refund: { icon: ArrowUpRight, color: 'text-[#FCD535]', label: 'Reembolso', prefix: '+' },
     purchase: { icon: CreditCard, color: 'text-[#2ebd85]', label: 'Compra', prefix: '+' },
-    token_deposit: { icon: ArrowDownRight, color: 'text-[#00b8d4]', label: 'Depósito BETALL', prefix: '+' },
-    token_withdraw: { icon: ArrowUpRight, color: 'text-[#00b8d4]', label: 'Retiro BETALL', prefix: '' },
+    token_deposit: { icon: ArrowDownRight, color: 'text-[#FCD535]', label: 'Depósito BETALL', prefix: '+' },
+    token_withdraw: { icon: ArrowUpRight, color: 'text-[#FCD535]', label: 'Retiro BETALL', prefix: '' },
   };
 
   return (
@@ -126,10 +126,10 @@ export default function Wallet() {
         <div className="glass-card p-8 flex flex-col justify-between">
           <div>
             <p className="text-sm text-[#848e9c] mb-1 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#00b8d4]" />
+              <Sparkles className="w-4 h-4 text-[#FCD535]" />
               Créditos diarios
             </p>
-            <p className="text-2xl font-bold text-[#00b8d4] mb-3">500 créditos/día</p>
+            <p className="text-2xl font-bold text-[#FCD535] mb-3">500 créditos/día</p>
           </div>
 
           {canClaim ? (
@@ -160,7 +160,7 @@ export default function Wallet() {
         <div className="glass-card p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-[#eaecef] flex items-center gap-2">
-              <WalletIcon className="w-5 h-5 text-[#00b8d4]" />
+              <WalletIcon className="w-5 h-5 text-[#FCD535]" />
               BETALL Token
             </h3>
           </div>
@@ -168,7 +168,7 @@ export default function Wallet() {
           {walletCtx?.isConnected && (
             <div className="mt-4 bg-[#1e2329] rounded-lg p-4">
               <p className="text-xs text-[#848e9c] mb-1">On-chain balance</p>
-              <p className="text-2xl font-bold text-[#00b8d4]">
+              <p className="text-2xl font-bold text-[#FCD535]">
                 {parseFloat(walletCtx.tokenBalance).toLocaleString(undefined, { maximumFractionDigits: 2 })} BETALL
               </p>
             </div>
@@ -211,7 +211,7 @@ export default function Wallet() {
                   {tx.market_id && (
                     <Link
                       to={`/market/${tx.market_id}`}
-                      className="text-xs text-[#00b8d4] hover:text-[#00e5ff]"
+                      className="text-xs text-[#FCD535] hover:text-[#FFE066]"
                     >
                       Ver
                     </Link>

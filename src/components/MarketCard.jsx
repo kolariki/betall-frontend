@@ -27,7 +27,7 @@ const categoryColors = {
   crypto: 'text-orange-400 bg-orange-400/10 border-orange-400/20',
   entertainment: 'text-pink-400 bg-pink-400/10 border-pink-400/20',
   economy: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20',
-  technology: 'text-[#00b8d4] bg-[#00b8d4]/10 border-[#00b8d4]/20',
+  technology: 'text-[#FCD535] bg-[#FCD535]/10 border-[#FCD535]/20',
   science: 'text-purple-400 bg-purple-400/10 border-purple-400/20',
   weather: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20',
   culture: 'text-rose-400 bg-rose-400/10 border-rose-400/20',
@@ -35,7 +35,7 @@ const categoryColors = {
   rain: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
   wind: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20',
   humidity: 'text-teal-400 bg-teal-400/10 border-teal-400/20',
-  visibility: 'text-[#00b8d4] bg-[#00b8d4]/10 border-[#00b8d4]/20',
+  visibility: 'text-[#FCD535] bg-[#FCD535]/10 border-[#FCD535]/20',
   other: 'text-[#848e9c] bg-[#848e9c]/10 border-[#848e9c]/20',
 };
 
@@ -112,7 +112,7 @@ export default function MarketCard({ market, variant }) {
   return (
     <div
       onClick={() => navigate(`/market/${market.id}`)}
-      className="glass-card p-5 cursor-pointer hover:border-[#00b8d4]/40 transition-all duration-300 group"
+      className="glass-card p-5 cursor-pointer hover:border-[#FCD535]/40 transition-all duration-300 group"
     >
       {/* Header */}
       <div className="flex items-start justify-between mb-3">
@@ -123,7 +123,7 @@ export default function MarketCard({ market, variant }) {
       </div>
 
       {/* Question */}
-      <h3 className="text-sm font-semibold text-[#eaecef] mb-3 leading-snug group-hover:text-[#00b8d4] transition-colors line-clamp-2">
+      <h3 className="text-sm font-semibold text-[#eaecef] mb-3 leading-snug group-hover:text-[#FCD535] transition-colors line-clamp-2">
         {market.question}
       </h3>
 

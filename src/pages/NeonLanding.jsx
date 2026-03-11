@@ -72,7 +72,7 @@ export default function NeonLanding() {
         l.style.filter = 'blur(0)';
         l.style.transition = 'opacity .25s ease, transform .25s ease, filter .25s ease';
         l.style.color = '#fff';
-        l.style.textShadow = '0 0 4px #00e5ff';
+        l.style.textShadow = '0 0 4px #FFE066';
       }, delay + i * 250);
     });
 
@@ -105,21 +105,21 @@ export default function NeonLanding() {
         .neon-landing .logo-wrap { position: relative; margin-bottom: 8px; }
         .neon-landing .logo { font-size: clamp(3rem, 12vw, 8rem); font-weight: 900; color: #fff; letter-spacing: .08em; display: flex; justify-content: center; }
         .neon-landing .logo .letter { opacity: 0; transform: translateY(20px); display: inline-block; filter: blur(4px); }
-        .neon-landing .logo.glow-steady { text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #00e5ff, 0 0 82px #00e5ff, 0 0 92px #00e5ff, 0 0 102px #00e5ff, 0 0 151px #00b8d4; animation: nl-breathe 3s ease-in-out infinite; }
+        .neon-landing .logo.glow-steady { text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FFE066, 0 0 82px #FFE066, 0 0 92px #FFE066, 0 0 102px #FFE066, 0 0 151px #FCD535; animation: nl-breathe 3s ease-in-out infinite; }
         .neon-landing .logo.flicker { animation: nl-neonFlicker .6s steps(1) 1; }
-        @keyframes nl-breathe { 0%, 100% { text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #00e5ff, 0 0 82px #00e5ff, 0 0 92px #00e5ff, 0 0 102px #00e5ff, 0 0 151px #00b8d4; } 50% { text-shadow: 0 0 4px #fff, 0 0 7px #fff, 0 0 14px #fff, 0 0 30px #00e5ff, 0 0 60px #00e5ff, 0 0 70px #00e5ff, 0 0 80px #00b8d4, 0 0 110px #00b8d4; } }
-        @keyframes nl-neonFlicker { 0% { opacity: 1; text-shadow: 0 0 7px #fff, 0 0 42px #00e5ff, 0 0 120px #00e5ff; } 10% { opacity: 0; } 20% { opacity: 1; } 30% { opacity: 0; } 40% { opacity: 1; } 50% { opacity: .3; } 60% { opacity: 1; } 100% { opacity: 1; text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #00e5ff, 0 0 82px #00e5ff, 0 0 92px #00e5ff, 0 0 102px #00e5ff, 0 0 151px #00b8d4; } }
+        @keyframes nl-breathe { 0%, 100% { text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FFE066, 0 0 82px #FFE066, 0 0 92px #FFE066, 0 0 102px #FFE066, 0 0 151px #FCD535; } 50% { text-shadow: 0 0 4px #fff, 0 0 7px #fff, 0 0 14px #fff, 0 0 30px #FFE066, 0 0 60px #FFE066, 0 0 70px #FFE066, 0 0 80px #FCD535, 0 0 110px #FCD535; } }
+        @keyframes nl-neonFlicker { 0% { opacity: 1; text-shadow: 0 0 7px #fff, 0 0 42px #FFE066, 0 0 120px #FFE066; } 10% { opacity: 0; } 20% { opacity: 1; } 30% { opacity: 0; } 40% { opacity: 1; } 50% { opacity: .3; } 60% { opacity: 1; } 100% { opacity: 1; text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FFE066, 0 0 82px #FFE066, 0 0 92px #FFE066, 0 0 102px #FFE066, 0 0 151px #FCD535; } }
         .neon-landing .burst { position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,.6) 0%, transparent 70%); transform: translate(-50%, -50%); pointer-events: none; opacity: 0; }
         .neon-landing .burst.active { animation: nl-burstAnim .8s ease-out forwards; }
         @keyframes nl-burstAnim { 0% { width: 0; height: 0; opacity: .9; } 100% { width: 140vw; height: 140vw; opacity: 0; } }
-        .neon-landing .reflection { font-size: clamp(3rem, 12vw, 8rem); font-weight: 900; color: #00e5ff; letter-spacing: .08em; transform: scaleY(-1); opacity: 0; mask-image: linear-gradient(to bottom, rgba(0,0,0,.25) 0%, transparent 60%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.25) 0%, transparent 60%); filter: blur(2px); pointer-events: none; transition: opacity 1s; }
+        .neon-landing .reflection { font-size: clamp(3rem, 12vw, 8rem); font-weight: 900; color: #FFE066; letter-spacing: .08em; transform: scaleY(-1); opacity: 0; mask-image: linear-gradient(to bottom, rgba(0,0,0,.25) 0%, transparent 60%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.25) 0%, transparent 60%); filter: blur(2px); pointer-events: none; transition: opacity 1s; }
         .neon-landing .reflection.show { opacity: 1; }
-        .neon-landing .tagline { font-size: clamp(.8rem, 2.5vw, 1.3rem); color: #00e5ff; letter-spacing: .3em; text-transform: uppercase; opacity: 0; margin-top: 24px; text-shadow: 0 0 7px #00e5ff, 0 0 20px #00b8d4; transition: opacity 1.5s; }
+        .neon-landing .tagline { font-size: clamp(.8rem, 2.5vw, 1.3rem); color: #FFE066; letter-spacing: .3em; text-transform: uppercase; opacity: 0; margin-top: 24px; text-shadow: 0 0 7px #FFE066, 0 0 20px #FCD535; transition: opacity 1.5s; }
         .neon-landing .tagline.show { opacity: .7; }
         .neon-landing .cta { margin-top: 48px; opacity: 0; transform: translateY(40px); }
         .neon-landing .cta.show { opacity: 1; transform: translateY(0); transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1); }
-        .neon-landing .cta button { display: inline-block; padding: 18px 48px; font-family: 'Orbitron', sans-serif; font-size: clamp(.9rem, 2vw, 1.2rem); font-weight: 700; color: #00e5ff; background: transparent; border: 2px solid #00e5ff; border-radius: 4px; text-transform: uppercase; letter-spacing: .15em; cursor: pointer; box-shadow: 0 0 10px #00e5ff44, 0 0 40px #00e5ff22, inset 0 0 10px #00e5ff11; transition: all .3s ease; }
-        .neon-landing .cta button:hover { background: #00e5ff; color: #000; box-shadow: 0 0 20px #00e5ff, 0 0 60px #00e5ff88, 0 0 100px #00e5ff44, inset 0 0 20px #00e5ff44; }
+        .neon-landing .cta button { display: inline-block; padding: 18px 48px; font-family: 'Orbitron', sans-serif; font-size: clamp(.9rem, 2vw, 1.2rem); font-weight: 700; color: #FFE066; background: transparent; border: 2px solid #FFE066; border-radius: 4px; text-transform: uppercase; letter-spacing: .15em; cursor: pointer; box-shadow: 0 0 10px #FFE06644, 0 0 40px #FFE06622, inset 0 0 10px #FFE06611; transition: all .3s ease; }
+        .neon-landing .cta button:hover { background: #FFE066; color: #000; box-shadow: 0 0 20px #FFE066, 0 0 60px #FFE06688, 0 0 100px #FFE06644, inset 0 0 20px #FFE06644; }
         @media (max-width: 600px) { .neon-landing .cta button { padding: 16px 0; width: 80vw; text-align: center; } }
       `}</style>
       <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />

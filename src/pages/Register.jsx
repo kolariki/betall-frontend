@@ -48,7 +48,7 @@ export default function Register() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
                 placeholder="tu_username"
                 required
               />
@@ -63,7 +63,7 @@ export default function Register() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
                 placeholder="tu@email.com"
                 required
               />
@@ -80,7 +80,7 @@ export default function Register() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#00b8d4]/50"
+                className="w-full bg-[#1e2329] border border-[#2b3139] rounded-lg pl-10 pr-4 py-2.5 text-[#eaecef] text-sm focus:outline-none focus:border-[#FCD535]/50"
                 placeholder="Mínimo 6 caracteres"
                 required
                 minLength={6}
@@ -105,7 +105,7 @@ export default function Register() {
           ¿Ya tienes cuenta?{" "}
           <Link
             to="/login"
-            className="text-[#00b8d4] hover:text-[#00e5ff] font-medium"
+            className="text-[#FCD535] hover:text-[#FFE066] font-medium"
           >
             Inicia sesión
           </Link>

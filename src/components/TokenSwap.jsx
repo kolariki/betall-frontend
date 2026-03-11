@@ -80,7 +80,7 @@ export default function TokenSwap() {
   return (
     <div className="glass-card p-6">
       <h3 className="text-lg font-bold text-[#eaecef] mb-4 flex items-center gap-2">
-        <ArrowDownUp className="w-5 h-5 text-[#00b8d4]" />
+        <ArrowDownUp className="w-5 h-5 text-[#FCD535]" />
         BETALL ↔ Credits
       </h3>
 
@@ -100,8 +100,8 @@ export default function TokenSwap() {
           onClick={() => setMode('withdraw')}
           className={`py-2.5 rounded-lg font-bold text-sm transition-all ${
             mode === 'withdraw'
-              ? 'bg-[#00b8d4] text-white'
-              : 'bg-[#00b8d4]/10 text-[#00b8d4] border border-[#00b8d4]/20'
+              ? 'bg-[#FCD535] text-white'
+              : 'bg-[#FCD535]/10 text-[#FCD535] border border-[#FCD535]/20'
           }`}
         >
           Withdraw BETALL
@@ -131,7 +131,7 @@ export default function TokenSwap() {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="0"
-            className="flex-1 bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-3 text-[#eaecef] text-lg font-bold focus:outline-none focus:border-[#00b8d4]/50"
+            className="flex-1 bg-[#1e2329] border border-[#2b3139] rounded-lg px-4 py-3 text-[#eaecef] text-lg font-bold focus:outline-none focus:border-[#FCD535]/50"
             min="1"
           />
           <button
@@ -180,7 +180,7 @@ export default function TokenSwap() {
         className={`w-full py-3.5 rounded-lg font-bold text-sm text-white transition-all disabled:opacity-50 ${
           mode === 'deposit'
             ? 'bg-[#2ebd85]'
-            : 'bg-[#00b8d4]'
+            : 'bg-[#FCD535]'
         }`}
       >
         {loading ? (

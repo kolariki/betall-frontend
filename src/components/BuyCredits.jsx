@@ -16,10 +16,10 @@ const packageIcons = {
 };
 
 const packageColors = {
-  starter: { border: 'border-[#2b3139]', hover: 'hover:border-[#00b8d4]/40', bg: '' },
-  popular: { border: 'border-[#00b8d4]/50', hover: 'hover:border-[#00b8d4]', bg: 'ring-1 ring-[#00b8d4]/20' },
-  pro: { border: 'border-[#2b3139]', hover: 'hover:border-[#00b8d4]/40', bg: '' },
-  whale: { border: 'border-[#2b3139]', hover: 'hover:border-[#00b8d4]/40', bg: '' },
+  starter: { border: 'border-[#2b3139]', hover: 'hover:border-[#FCD535]/40', bg: '' },
+  popular: { border: 'border-[#FCD535]/50', hover: 'hover:border-[#FCD535]', bg: 'ring-1 ring-[#FCD535]/20' },
+  pro: { border: 'border-[#2b3139]', hover: 'hover:border-[#FCD535]/40', bg: '' },
+  whale: { border: 'border-[#2b3139]', hover: 'hover:border-[#FCD535]/40', bg: '' },
 };
 
 export default function BuyCredits() {
@@ -71,7 +71,7 @@ export default function BuyCredits() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-8">
-        <Loader2 className="w-6 h-6 animate-spin text-[#00b8d4]" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#FCD535]" />
       </div>
     );
   }
@@ -80,7 +80,7 @@ export default function BuyCredits() {
     <>
       <div>
         <h3 className="text-lg font-bold text-[#eaecef] mb-1 flex items-center gap-2">
-          <CreditCard className="w-5 h-5 text-[#00b8d4]" />
+          <CreditCard className="w-5 h-5 text-[#FCD535]" />
           Comprar Créditos
         </h3>
         <p className="text-sm text-[#5e6673] mb-4">Pagá con tarjeta de crédito o débito</p>
@@ -99,7 +99,7 @@ export default function BuyCredits() {
               >
                 {/* Popular badge */}
                 {isPopular && (
-                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#00b8d4] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#FCD535] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                     POPULAR
                   </div>
                 )}
@@ -112,10 +112,10 @@ export default function BuyCredits() {
                 )}
 
                 <div className="text-center">
-                  <Icon className={`w-6 h-6 mx-auto mb-2 ${isPopular ? 'text-[#00b8d4]' : 'text-[#848e9c]'} group-hover:text-[#00b8d4] transition-colors`} />
+                  <Icon className={`w-6 h-6 mx-auto mb-2 ${isPopular ? 'text-[#FCD535]' : 'text-[#848e9c]'} group-hover:text-[#FCD535] transition-colors`} />
                   <p className="text-xs text-[#5e6673] mb-1">{pkg.name}</p>
                   <p className="text-2xl font-black text-[#eaecef] mb-1">{pkg.priceDisplay}</p>
-                  <p className="text-sm font-semibold text-[#00b8d4]">
+                  <p className="text-sm font-semibold text-[#FCD535]">
                     {pkg.credits.toLocaleString()}
                   </p>
                   <p className="text-[10px] text-[#5e6673]">créditos</p>
@@ -125,7 +125,7 @@ export default function BuyCredits() {
                   disabled={selectedPkg === pkg.id}
                   className={`w-full mt-3 py-2 rounded-lg text-xs font-bold transition-all ${
                     isPopular
-                      ? 'bg-[#00b8d4] text-white hover:bg-[#00d4f5]'
+                      ? 'bg-[#FCD535] text-white hover:bg-[#00d4f5]'
                       : 'bg-[#1e2329] text-[#848e9c] hover:bg-[#2b3139] hover:text-[#eaecef] border border-[#2b3139]'
                   } disabled:opacity-50`}
                 >
