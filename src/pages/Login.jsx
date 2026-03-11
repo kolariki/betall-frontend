@@ -41,7 +41,7 @@ export default function Login() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mx-auto mb-4">
-            <BetAllLogo className="w-40 h-16" />
+            <BetAllLogo className="w-32 h-12 -mt-2" />
           </div>
           <h1 className="text-2xl font-bold gradient-text">Iniciar Sesión</h1>
           <p className="text-sm text-[#848e9c] mt-1">Ingresa a tu cuenta de BetAll</p>
